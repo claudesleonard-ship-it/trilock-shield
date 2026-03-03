@@ -10,33 +10,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
-        :root { --navy: #000080; --cyan: #00FFFF; --silver: #C0C0C0; --white: #FFFFFF; }
-        body { background: var(--navy); color: var(--white); font-family: 'Inter', sans-serif; margin: 0; padding: 40px 20px; line-height: 1.6; }
-        .terminal { max-width: 1200px; margin: auto; background: rgba(0,0,51,0.5); border: 1px solid rgba(0,255,255,0.2); padding: 60px; border-radius: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); }
-        .status { position: absolute; top: 30px; right: 40px; color: var(--silver); font-size: 0.75em; letter-spacing: 1px; }
+        :root { --navy: #000080; --cyan: #00FFFF; --silver: #C0C0C0; --white: #FFFFFF; --bg-dark: #02020a; }
+        
+        /* CORE BACKGROUND & TYPOGRAPHY */
+        body { background-color: var(--bg-dark); color: var(--white); font-family: 'Inter', sans-serif; margin: 0; padding: 20px 10px; line-height: 1.6; }
+        
+        /* THE MAIN CONTAINER */
+        .terminal { max-width: 1100px; margin: auto; background: radial-gradient(circle at top center, rgba(0,0,128,0.2) 0%, rgba(2,2,10,1) 100%); border: 1px solid rgba(0,255,255,0.15); padding: 40px; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); position: relative; }
+        
+        .status { position: absolute; top: 20px; right: 25px; color: var(--silver); font-size: 0.7em; letter-spacing: 1px; font-weight: 600; }
         .status span { color: #00ff62; text-shadow: 0 0 8px #00ff62; }
         
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; text-transform: uppercase; }
-        .hero-title { font-size: 3.5em; letter-spacing: -1px; margin-bottom: 20px; line-height: 1.1; }
-        .sub-hero { color: var(--cyan); font-size: 1.6em; font-weight: 600; margin-bottom: 10px; }
-        .alert-bar { color: #ff003c; font-weight: 800; font-size: 0.9em; margin-bottom: 40px; border-top: 1px solid rgba(255,0,60,0.3); padding-top: 10px; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; }
+        .hero-title { font-size: 3em; letter-spacing: -1px; margin-bottom: 20px; line-height: 1.1; text-transform: uppercase; }
+        .sub-hero { color: var(--cyan); font-size: 1.3em; font-weight: 600; margin-bottom: 10px; }
+        .alert-bar { color: #ff003c; font-weight: 800; font-size: 0.85em; margin-bottom: 30px; border-top: 1px solid rgba(255,0,60,0.3); padding-top: 15px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .btn-cyan { background: var(--cyan); color: var(--navy); font-family: 'Montserrat', sans-serif; font-weight: 800; padding: 20px 45px; text-decoration: none; border-radius: 4px; display: inline-block; box-shadow: 0 0 20px rgba(0,255,255,0.4); }
+        /* THE CYAN STRIPE BUTTON */
+        .btn-cyan { background: var(--cyan); color: #000; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1em; padding: 18px 40px; text-decoration: none; border-radius: 4px; display: inline-block; box-shadow: 0 0 20px rgba(0,255,255,0.3); text-transform: uppercase; transition: 0.2s; text-align: center; border: none; cursor: pointer; }
+        .btn-cyan:hover { box-shadow: 0 0 30px rgba(0,255,255,0.6); transform: translateY(-2px); }
 
-        /* INFOGRAPHIC INTEGRATION */
-        .infographic-container { margin: 60px 0; border: 1px solid var(--silver); padding: 5px; background: #000; }
-        .infographic-container img { width: 100%; display: block; border: 1px solid var(--cyan); }
+        /* INFOGRAPHIC */
+        .infographic-container { margin: 40px 0; padding: 0; background: #000; border-radius: 8px; overflow: hidden; border: 1px solid rgba(192,192,192,0.3); }
+        .infographic-container img { width: 100%; height: auto; display: block; }
 
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin: 60px 0; border-top: 1px solid rgba(192,192,192,0.2); padding-top: 60px; }
-        .stat-h { font-family: 'Montserrat', sans-serif; font-size: 2.5em; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
-        .source { font-size: 0.8em; color: var(--silver); font-style: italic; display: block; margin-top: 10px; }
+        /* MIDDLE GRID */
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 50px 0; border-top: 1px solid rgba(192,192,192,0.1); padding-top: 50px; }
+        .stat-h { font-family: 'Montserrat', sans-serif; font-size: 2.2em; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
+        .source { font-size: 0.75em; color: var(--silver); font-style: italic; display: block; margin-top: 5px; }
 
-        .audit-ledger { background: rgba(0,0,0,0.4); border: 2px solid var(--cyan); padding: 50px; border-radius: 8px; max-width: 600px; margin-top: 60px; }
-        .audit-ledger h2 { color: var(--cyan); font-size: 2em; }
-        .ledger-price { font-size: 2em; font-family: 'Montserrat', sans-serif; font-weight: 800; margin: 30px 0; }
+        /* AUDIT BOX */
+        .audit-ledger { background: rgba(0,0,0,0.6); border: 1px solid var(--cyan); padding: 40px; border-radius: 8px; max-width: 500px; margin-top: 40px; }
+        .audit-ledger h2 { color: var(--cyan); font-size: 1.8em; margin-bottom: 5px; }
+        .ledger-price { font-size: 2.2em; font-family: 'Montserrat', sans-serif; font-weight: 800; margin: 20px 0; color: var(--white); }
+        
+        .footer { margin-top: 60px; border-top: 1px solid rgba(192,192,192,0.1); padding-top: 30px; text-align: left; }
+        .quote { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2em; margin-bottom: 15px; }
 
-        .footer { margin-top: 80px; border-top: 1px solid rgba(192,192,192,0.2); padding-top: 40px; }
-        .quote { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4em; margin-bottom: 10px; }
+        /* MOBILE RESPONSIVE PROTOCOL */
+        @media (max-width: 768px) {
+            .terminal { padding: 25px 15px; }
+            .hero-title { font-size: 2.2em; }
+            .sub-hero { font-size: 1.1em; }
+            .stats-grid { grid-template-columns: 1fr; gap: 30px; padding-top: 30px; }
+            .btn-cyan { width: 100%; box-sizing: border-box; padding: 15px 20px; font-size: 1em; }
+            .audit-ledger { padding: 25px; }
+            .status { position: relative; top: 0; right: 0; margin-bottom: 20px; display: block; }
+        }
     </style>
 </head>
 <body>
@@ -44,49 +64,47 @@
         <div class="status"><span>●</span> Sentinel™ OVERWATCH ACTIVE</div>
         
         <header>
-            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 5px; margin-bottom: 30px; color: var(--silver);">TRILOCK SHIELD™</div>
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 4px; margin-bottom: 20px; color: var(--silver);">
+                TRILOCK SHIELD™
+            </div>
+            
             <h1 class="hero-title">SOVEREIGN AI GOVERNANCE<br>FOR A POST-QUANTUM WORLD.</h1>
             <div class="sub-hero">Stop Your Staff From Feeding Company Secrets to Unshielded LLMs.</div>
+            
             <div class="alert-bar">JAN 2026 OAIC TRANSPARENCY SWEEPS INITIATED. UNREGULATED AI USAGE IS A BOARD-LEVEL LIABILITY.</div>
             
-            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-            <stripe-buy-button
-              buy-button-id="buy_btn_1T6gLaFlZv3b16g1G3hQ2xzh"
-              publishable-key="pk_live_51T5vUbFlZv3b16g1IJVyUX4aEKIbGefoMSFQBrizMlNLsgw9G8PW68iJYfDQcq8gSjW9RjnaZwVWM5p2l2wJYSNW006S9yKk6H"
-            ></stripe-buy-button>
+            <a href="https://buy.stripe.com/dRm5kDgqu5aT3Vy2Sp8AE00" class="btn-cyan">[ INITIALIZE VT-60 AUDIT ]</a>
         </header>
 
         <div class="infographic-container">
-            <img src="https://raw.githubusercontent.com/[YOUR_GITHUB_USERNAME]/[YOUR_REPO_NAME]/main/1772519552011.png" alt="Sovereign Moat Architecture">
+            <img src="1772519552011.png" alt="Sovereign Moat Architecture">
         </div>
 
         <div class="stats-grid">
             <div>
-                <h3 style="color: var(--cyan); margin-bottom: 15px;">POLICY IS NOT A SHIELD.</h3>
+                <h3 style="color: var(--cyan); margin-bottom: 10px; font-size: 1em; letter-spacing: 1px;">POLICY IS NOT A SHIELD.</h3>
                 <div class="stat-h">37% of Data Breaches are caused by Human Error.</div>
                 <span class="source">(Source: Global Industry Data Egress Report 2026)</span>
             </div>
             <div>
-                <p style="color: var(--silver); font-size: 1.1em;">Corporate "AI Guidelines" do not hold up in court. Health & NDIS are the #1 targets for political enforcement. Under 2026 laws (OAIC APP 1.4 & NZ IPP 3A), unmitigated AI use is a multi-million dollar liability.</p>
-                <p style="margin-top: 20px;">We do not rely on human compliance. We enforce Architectural Compliance.</p>
+                <p style="color: var(--silver); font-size: 1em; margin-top: 0;">Corporate "AI Guidelines" do not hold up in court. Health & NDIS are the #1 targets for political enforcement. Under 2026 laws (OAIC APP 1.4 & NZ IPP 3A), unmitigated AI use is a multi-million dollar liability.</p>
+                <p style="color: var(--white); font-weight: 600;">We do not rely on human compliance. We enforce Architectural Compliance.</p>
             </div>
         </div>
 
         <div class="audit-ledger">
             <h2>VULNERABILITY TRACER™ (VT-60)</h2>
-            <div style="color: var(--silver); font-weight: 600;">Immediate Forensic Diagnosis & Gap Analysis.</div>
-            <div class="ledger-price">Investment: $2,497 AUD</div>
-            <p style="font-size: 0.8em; color: var(--silver); margin-bottom: 30px;">(100% credited toward full Gateway implementation)</p>
+            <div style="color: var(--silver); font-weight: 600; font-size: 0.9em;">Immediate Forensic Diagnosis & Gap Analysis.</div>
             
-            <stripe-buy-button
-              buy-button-id="buy_btn_1T6gLaFlZv3b16g1G3hQ2xzh"
-              publishable-key="pk_live_51T5vUbFlZv3b16g1IJVyUX4aEKIbGefoMSFQBrizMlNLsgw9G8PW68iJYfDQcq8gSjW9RjnaZwVWM5p2l2wJYSNW006S9yKk6H"
-            ></stripe-buy-button>
+            <div class="ledger-price">Investment: $2,497 <span style="font-size: 0.4em; color: var(--silver); font-weight: normal;">AUD</span></div>
+            <p style="font-size: 0.8em; color: var(--silver); margin-bottom: 25px;">(100% credited toward full Gateway implementation)</p>
+            
+            <a href="https://buy.stripe.com/dRm5kDgqu5aT3Vy2Sp8AE00" class="btn-cyan">SECURE VT-60 AUDIT</a>
         </div>
 
         <footer class="footer">
-            <div class="quote">"Enforcement is the new political currency. Don't be the next scalp." <span style="color: var(--cyan);">— The Architect</span></div>
-            <div style="font-size: 0.75em; color: var(--silver); opacity: 0.6;">IP Notice: TRILOCK SHIELD™, R.A.C.E. Protocol™, Sentinel™, and Forklift™ are registered trademarks of TRILOCK AI.</div>
+            <div class="quote">"Enforcement is the new political currency. Don't be the next scalp." <br><span style="color: var(--cyan); font-size: 0.8em;">— The Architect</span></div>
+            <div style="font-size: 0.7em; color: var(--silver); opacity: 0.5;">IP Notice: TRILOCK SHIELD™, R.A.C.E. Protocol™, Sentinel™, and Forklift™ are registered trademarks of TRILOCK AI.</div>
         </footer>
     </div>
 </body>
