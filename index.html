@@ -43,6 +43,7 @@
             overflow: hidden;
         }
         
+        /* SCANLINE EFFECT */
         .terminal::before {
             content: '';
             position: absolute;
@@ -81,10 +82,8 @@
             50% { opacity: 0.5; }
         }
         
-        h1, h2, h3 { 
-            font-family: 'Montserrat', sans-serif; 
-            margin: 0; 
-        }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; }
+        
         .hero-title { 
             font-size: 3.5em; 
             letter-spacing: -1.5px; 
@@ -93,12 +92,9 @@
             text-transform: uppercase; 
             text-shadow: 0 0 15px rgba(0,255,255,0.3);
         }
-        .sub-hero { 
-            color: var(--cyan); 
-            font-size: 1.4em; 
-            font-weight: 600; 
-            margin-bottom: 15px; 
-        }
+        
+        .sub-hero { color: var(--cyan); font-size: 1.4em; font-weight: 600; margin-bottom: 15px; }
+        
         .alert-bar { 
             color: var(--red); 
             font-weight: 800; 
@@ -130,43 +126,45 @@
             position: relative; 
             overflow: hidden;
         }
-        .btn-cyan::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-            transform: scale(0);
-            transition: transform 0.5s;
-        }
-        .btn-cyan:hover::after {
-            transform: scale(1);
-        }
+        
         .btn-cyan:hover { 
             box-shadow: 0 0 40px rgba(0,255,255,0.7); 
             transform: translateY(-3px); 
         }
 
+        .btn-outline {
+            background: transparent;
+            color: var(--silver);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9em;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            border: 1px solid var(--silver);
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
         .infographic-container { 
             margin: 50px 0; 
-            padding: 0; 
             background: #000; 
             border-radius: 12px; 
             overflow: hidden; 
             border: 1px solid rgba(192,192,192,0.2); 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .infographic-container img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            transition: transform 0.3s ease;
-        }
-        .infographic-container:hover img {
-            transform: scale(1.05);
-        }
+        
+        .infographic-container img { width: 100%; height: auto; display: block; }
 
         .stats-grid { 
             display: grid; 
@@ -176,32 +174,37 @@
             border-top: 1px solid rgba(192,192,192,0.05); 
             padding-top: 60px; 
         }
-        .stat-h { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 2.5em; 
-            font-weight: 800; 
-            line-height: 1.1; 
-            margin-bottom: 15px; 
-        }
-        .source { 
-            font-size: 0.8em; 
-            color: var(--silver); 
-            font-style: italic; 
-            display: block; 
-            margin-top: 10px; 
-        }
+        
+        .stat-h { font-family: 'Montserrat', sans-serif; font-size: 2.5em; font-weight: 800; line-height: 1.1; margin-bottom: 15px; }
+        
+        .source { font-size: 0.8em; color: var(--silver); font-style: italic; display: block; margin-top: 10px; }
 
+        /* THE TRILOCK LEDGER */
+        .ledger-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0 0;
+            border-top: 1px solid rgba(192,192,192,0.05);
+            padding-top: 60px;
+        }
+        
         .audit-ledger { 
             background: rgba(0,0,0,0.7); 
-            border: 1px solid var(--cyan); 
-            padding: 50px; 
+            border: 1px solid rgba(192,192,192,0.2); 
+            padding: 40px; 
             border-radius: 12px; 
-            max-width: 600px; 
-            margin: 50px auto 0; 
-            box-shadow: 0 0 30px rgba(0,255,255,0.2);
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
-        .audit-ledger::before {
+        
+        .audit-ledger.active {
+            border: 1px solid var(--cyan);
+            box-shadow: 0 0 30px rgba(0,255,255,0.15);
+        }
+        
+        .audit-ledger.active::before {
             content: 'SECURE';
             position: absolute;
             top: -15px;
@@ -212,11 +215,7 @@
             padding: 5px 10px;
             font-family: 'Inconsolata', monospace;
         }
-        .audit-ledger h2 { 
-            color: var(--cyan); 
-            font-size: 2em; 
-            margin-bottom: 10px; 
-        }
+        
         .ledger-price { 
             font-size: 2.5em; 
             font-family: 'Montserrat', sans-serif; 
@@ -225,32 +224,18 @@
             color: var(--white); 
         }
         
-        .footer { 
-            margin-top: 80px; 
-            border-top: 1px solid rgba(192,192,192,0.05); 
-            padding-top: 40px; 
-            text-align: left; 
-        }
-        .quote { 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 800; 
-            font-size: 1.3em; 
-            margin-bottom: 20px; 
-        }
+        .ledger-price span { font-size: 0.4em; color: var(--silver); font-weight: normal; vertical-align: middle; }
+        
+        .footer { margin-top: 80px; border-top: 1px solid rgba(192,192,192,0.05); padding-top: 40px; }
+        
+        .quote { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.3em; margin-bottom: 20px; }
 
         @media (max-width: 768px) {
             .terminal { padding: 30px 20px; }
             .hero-title { font-size: 2.5em; }
-            .sub-hero { font-size: 1.2em; }
-            .stats-grid { gap: 40px; padding-top: 40px; }
-            .btn-cyan { width: 100%; box-sizing: border-box; padding: 18px 25px; font-size: 1.1em; }
-            .audit-ledger { padding: 30px; }
+            .stats-grid, .ledger-grid { gap: 40px; padding-top: 40px; }
+            .btn-cyan { width: 100%; box-sizing: border-box; }
             .status { position: relative; top: 0; right: 0; margin-bottom: 25px; display: block; text-align: center; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title { font-size: 2em; }
-            .btn-cyan { font-size: 1em; }
         }
     </style>
 </head>
@@ -266,13 +251,13 @@
             <h1 class="hero-title">SOVEREIGN AI GOVERNANCE<br>FOR A POST-QUANTUM WORLD.</h1>
             <div class="sub-hero">Prevent Your Staff From Leaking Company Secrets to Unshielded LLMs.</div>
             
-            <div class="alert-bar">JAN 2026 OAIC TRANSPARENCY SWEEPS INITIATED. UNREGULATED AI USAGE IS A BOARD-LEVEL LIABILITY.</div>
+            <div class="alert-bar">GLOBAL TRANSPARENCY SWEEPS INITIATED. UNREGULATED AI USAGE IS A BOARD-LEVEL LIABILITY.</div>
             
-            <a href="https://buy.stripe.com/dRm5kDgqu5aT3Vy2Sp8AE00" class="btn-cyan">[ INITIALIZE VT-60 AUDIT ]</a>
+            <a href="#ledger" class="btn-cyan">[ INITIALIZE SYSTEM AUDIT ]</a>
         </header>
 
         <div class="infographic-container">
-            <img src="1772519527303.png" alt="Sovereign Moat Architecture Infographic illustrating secure AI governance layers">
+            <img src="1772519527303.png" alt="Sovereign Moat Architecture">
         </div>
 
         <div class="stats-grid">
@@ -282,19 +267,38 @@
                 <span class="source">(Source: Global Industry Data Egress Report 2026)</span>
             </div>
             <div>
-                <p style="color: var(--silver); font-size: 1em; margin-top: 0;">Corporate "AI Guidelines" do not hold up in court. Health & NDIS are the #1 targets for political enforcement. Under 2026 laws (OAIC APP 1.4 & NZ IPP 3A), unmitigated AI use is a multi-million dollar liability.</p>
-                <p style="color: var(--white); font-weight: 600;">We do not rely on human compliance. We enforce Architectural Compliance.</p>
+                <p style="color: var(--silver); font-size: 1em; margin-top: 0;">Healthcare, Finance, and NDIS providers are the primary targets for geopolitical and domestic enforcement. Under 2026 mandates—including <strong>OAIC APP 1.4</strong> (AU), <strong>IPP 3A</strong> (NZ), and the <strong>UAE AI Act</strong>—unmitigated AI use is a multi-million dollar liability.</p>
+                <p style="color: var(--white); font-weight: 600;">Architectural compliance does not ask for permission. The Sentinel™ does not rely on human compliance.</p>
             </div>
         </div>
 
-        <div class="audit-ledger">
-            <h2>VULNERABILITY TRACER™ (VT-60)</h2>
-            <div style="color: var(--silver); font-weight: 600; font-size: 1em;">Immediate Forensic Diagnosis & Gap Analysis.</div>
+        <h3 id="ledger" style="color: var(--white); font-size: 1.5em; text-align: center; margin-top: 40px;">THE TRILOCK LEDGER</h3>
+        <div class="ledger-grid">
             
-            <div class="ledger-price">Investment: $2,497 <span style="font-size: 0.5em; color: var(--silver); font-weight: normal;">AUD</span></div>
-            <p style="font-size: 0.85em; color: var(--silver); margin-bottom: 30px;">(100% credited toward full Gateway implementation)</p>
-            
-            <a href="https://buy.stripe.com/dRm5kDgqu5aT3Vy2Sp8AE00" class="btn-cyan">SECURE VT-60 AUDIT</a>
+            <div class="audit-ledger active">
+                <h2>VULNERABILITY TRACER™ (VT-60)</h2>
+                <div style="color: var(--silver); font-weight: 600; font-size: 0.9em;">Forensic Diagnosis & Gap Analysis.</div>
+                <div class="ledger-price">$2,497 <span>AUD</span></div>
+                <p style="font-size: 0.85em; color: var(--silver); margin-bottom: auto; padding-bottom: 30px;">Identifies 12 critical egress points. (100% credited toward full Gateway implementation).</p>
+                <a href="https://buy.stripe.com/dRm5kDgqu5aT3Vy2Sp8AE00" class="btn-cyan" style="font-size: 1em; padding: 15px;">SECURE VT-60 AUDIT</a>
+            </div>
+
+            <div class="audit-ledger">
+                <h2>BOUTIQUE SHIELD™</h2>
+                <div style="color: var(--silver); font-weight: 600; font-size: 0.9em;">Sovereign Edge Deployment (SMB)</div>
+                <div class="ledger-price">$24,997 <span>/ annually</span></div>
+                <p style="font-size: 0.85em; color: var(--silver); margin-bottom: auto; padding-bottom: 30px;">Full Edge-Local MITM Gateway. Sentinel™ Circuit Breaker and R.A.C.E. Protocol active.</p>
+                <a href="https://www.linkedin.com/in/YOUR_PROFILE" class="btn-outline">REQUEST BRIEFING</a>
+            </div>
+
+            <div class="audit-ledger">
+                <h2>SOVEREIGN FORTRESS™</h2>
+                <div style="color: var(--silver); font-weight: 600; font-size: 0.9em;">Enterprise/Gov Implementation</div>
+                <div class="ledger-price">$250,000+ <span>/ annually</span></div>
+                <p style="font-size: 0.85em; color: var(--silver); margin-bottom: auto; padding-bottom: 30px;">Hardware-locked data residency. Custom jurisdictional routing (AU/NZ/UAE) via Forklift™ Data Shuttle.</p>
+                <a href="https://www.linkedin.com/in/YOUR_PROFILE" class="btn-outline">EXECUTIVE BRIEFING</a>
+            </div>
+
         </div>
 
         <footer class="footer">
