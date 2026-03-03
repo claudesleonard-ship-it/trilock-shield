@@ -237,6 +237,32 @@
             }
             .audit-ledger::after { opacity: 0 !important; }
         }
+
+        /* Footer enhancements */
+        footer {
+            margin-top: 80px; 
+            border-top: 1px solid rgba(192,192,192,0.05); 
+            padding-top: 40px; 
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--silver);
+            opacity: 0.85;
+        }
+        footer .quote {
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 800; 
+            font-size: 1.15em; 
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        footer .ip-notice {
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+        footer .ip-notice .trademarks {
+            color: var(--cyan);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -331,5 +357,15 @@
 
         </div>
 
-        <footer style="margin-top: 80px; border-top: 1px solid rgba(192,192,192,0.05); padding-top: 40px; text-align: center;">
-            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.2em; margin-bottom: 20px;">"Enforcement is the new political currency. Don't be the next scalp."<br><span style="color: var(--cyan
+        <footer>
+            <div class="quote">"Enforcement is the new political currency. Don't be the next scalp."<br><span style="color: var(--cyan); font-size: 0.9em;">— The Architect</span></div>
+            
+            <div class="ip-notice">
+                © 2026 TRILOCK AI. <strong>All rights reserved</strong>.<br>
+                <span class="trademarks">TRILOCK SHIELD™</span>, <span class="trademarks">R.A.C.E. Protocol™</span>, <span class="trademarks">Sentinel™</span>, <span class="trademarks">Forklift™</span>, and other marks are trademarks of TRILOCK AI.<br>
+                All content, designs, text, graphics, and intellectual property on this site are protected by copyright and other applicable laws. Unauthorized use, reproduction, or distribution is strictly prohibited.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
