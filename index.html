@@ -1,38 +1,54 @@
 <style>
+    /* RESTORING THE FORCED BRAND COLORS */
     :root {
-        --terminal-green: #00FF41;
-        --alert-red: #FF3131;
-        --obsidian: #050505;
-        --deep-grey: #121212;
+        --trilock-cyan: #00F0FF;
+        --terminal-dark: #050505;
+        --neon-glow: 0 0 15px rgba(0, 240, 255, 0.4);
     }
+
     body {
-        background-color: var(--obsidian);
-        color: #E2E8F0;
-        /* Re-injecting the forensic scan-line effect */
-        background-image: linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px);
-        background-size: 100% 3px;
+        background-color: var(--terminal-dark);
+        color: #ffffff;
+        font-family: 'Inter', sans-serif;
     }
-    .shield-header {
-        border-bottom: 2px solid var(--terminal-green);
-        text-shadow: 0 0 10px var(--terminal-green);
-        padding: 20px 0;
+
+    .neon-panel {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--trilock-cyan);
+        box-shadow: var(--neon-glow);
+        padding: 40px;
+        margin-bottom: 30px;
+        border-radius: 4px;
     }
-    .audit-box {
-        background: var(--deep-grey);
-        border: 1px solid var(--terminal-green);
-        box-shadow: inset 0 0 15px rgba(0, 255, 65, 0.2), 0 0 20px rgba(0, 0, 0, 1);
-        padding: 3rem;
+
+    .trilock-ledger-card {
+        background: #000;
+        border: 1px solid #1a1a1a;
+        padding: 30px;
+        border-top: 3px solid var(--trilock-cyan);
     }
-    .comparison-table th {
-        color: var(--terminal-green);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        border-bottom: 1px solid var(--terminal-green);
-    }
+
+    .text-cyan { color: var(--trilock-cyan); font-family: 'Fira Code', monospace; }
 </style>
 
-<section style="text-align: center; margin: 40px 0;">
-        <p style="color: var(--terminal-green); font-family: monospace; margin-top: 10px;">
-        STATUS: SENTINEL™ CIRCUIT BREAKER ACTIVE AT EDGE
+<section class="neon-panel">
+    <h2 class="text-cyan">[ SYSTEM_ALERT ]: THE IMPLEMENTATION GAP</h2>
+    <p style="font-size: 1.2rem; margin-top: 1rem;">
+        "Frameworks without Gateways are just paperwork. While your competitors 'Inventory' their risk monthly, TRILOCK SHIELD™ intercepts it in milliseconds."
     </p>
 </section>
+
+<h2 class="text-cyan" style="text-align: center; margin-bottom: 30px;">THE TRILOCK LEDGER</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div class="trilock-ledger-card">
+        <h3 class="text-cyan">VT-60 AUDIT</h3>
+        <p style="font-size: 1.5rem; margin: 10px 0;">$2,497 <small style="font-size: 0.7rem;">AUD</small></p>
+        <p style="color: #888;">60-minute forensic discovery and gap analysis. Identifies 12 critical egress points.</p>
+        <a href="mailto:forensics@trilockshield.com" class="text-cyan" style="display: block; margin-top: 20px; text-decoration: none;">[ INITIALIZE AUDIT ]</a>
+    </div>
+    <div class="trilock-ledger-card">
+        <h3 class="text-cyan">BLEED STOP™</h3>
+        <p style="font-size: 1.5rem; margin: 10px 0;">$7,497 <small style="font-size: 0.7rem;">AUD</small></p>
+        <p style="color: #888;">Emergency Workflow Re-engineering. Immediate prompt-fix and edge-interception patching (48-hour SLA).</p>
+    </div>
+</div>
