@@ -1,54 +1,163 @@
-<style>
-    /* RESTORING THE FORCED BRAND COLORS */
-    :root {
-        --trilock-cyan: #00F0FF;
-        --terminal-dark: #050505;
-        --neon-glow: 0 0 15px rgba(0, 240, 255, 0.4);
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TRILOCK SHIELD™ | Sovereign AI Governance</title>
+    <style>
+        :root {
+            --cyan: #00F0FF;
+            --obsidian: #050505;
+            --glow: 0 0 15px rgba(0, 240, 255, 0.4);
+            --font-mono: 'Fira Code', 'Courier New', monospace;
+        }
 
-    body {
-        background-color: var(--terminal-dark);
-        color: #ffffff;
-        font-family: 'Inter', sans-serif;
-    }
+        body {
+            background-color: var(--obsidian);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 4px; /* Restoring the forensic scan-lines */
+            margin: 0;
+            padding: 0;
+        }
 
-    .neon-panel {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid var(--trilock-cyan);
-        box-shadow: var(--neon-glow);
-        padding: 40px;
-        margin-bottom: 30px;
-        border-radius: 4px;
-    }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
-    .trilock-ledger-card {
-        background: #000;
-        border: 1px solid #1a1a1a;
-        padding: 30px;
-        border-top: 3px solid var(--trilock-cyan);
-    }
+        .terminal-header {
+            border-bottom: 2px solid var(--cyan);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            text-shadow: var(--glow);
+            letter-spacing: 2px;
+        }
 
-    .text-cyan { color: var(--trilock-cyan); font-family: 'Fira Code', monospace; }
-</style>
+        /* THE NEON PANEL STYLE YOU LIKED */
+        .neon-panel {
+            background: rgba(0, 240, 255, 0.02);
+            border: 1px solid var(--cyan);
+            box-shadow: var(--glow);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
 
-<section class="neon-panel">
-    <h2 class="text-cyan">[ SYSTEM_ALERT ]: THE IMPLEMENTATION GAP</h2>
-    <p style="font-size: 1.2rem; margin-top: 1rem;">
-        "Frameworks without Gateways are just paperwork. While your competitors 'Inventory' their risk monthly, TRILOCK SHIELD™ intercepts it in milliseconds."
-    </p>
-</section>
+        .text-cyan { color: var(--cyan); font-family: var(--font-mono); text-transform: uppercase; }
 
-<h2 class="text-cyan" style="text-align: center; margin-bottom: 30px;">THE TRILOCK LEDGER</h2>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-    <div class="trilock-ledger-card">
-        <h3 class="text-cyan">VT-60 AUDIT</h3>
-        <p style="font-size: 1.5rem; margin: 10px 0;">$2,497 <small style="font-size: 0.7rem;">AUD</small></p>
-        <p style="color: #888;">60-minute forensic discovery and gap analysis. Identifies 12 critical egress points.</p>
-        <a href="mailto:forensics@trilockshield.com" class="text-cyan" style="display: block; margin-top: 20px; text-decoration: none;">[ INITIALIZE AUDIT ]</a>
+        /* THE LEDGER CARDS */
+        .ledger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .ledger-card {
+            background: #000;
+            border: 1px solid #1a1a1a;
+            border-top: 4px solid var(--cyan);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* THE COMPARISON MATRIX */
+        .matrix { width: 100%; border-collapse: collapse; margin: 40px 0; border: 1px solid #1a1a1a; }
+        .matrix th, .matrix td { padding: 15px; text-align: left; border: 1px solid #1a1a1a; }
+        .matrix th { color: var(--cyan); background: #0a0a0a; font-size: 0.8rem; }
+        .matrix td.trilock-cell { color: var(--cyan); font-weight: bold; background: rgba(0, 240, 255, 0.05); }
+
+        /* FORENSIC FORM */
+        .audit-form { background: #000; border: 1px solid var(--cyan); padding: 40px; margin-top: 40px; }
+        .form-input { 
+            width: 100%; background: #0a0a0a; border: 1px solid #333; color: #fff; 
+            padding: 12px; margin: 10px 0 20px; font-family: var(--font-mono);
+        }
+        .form-input:focus { border-color: var(--cyan); outline: none; }
+        .btn-dispatch {
+            background: var(--cyan); color: #000; border: none; padding: 15px 30px;
+            font-family: var(--font-mono); font-weight: bold; width: 100%; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="terminal-header">
+        <h1 style="margin:0;">TRILOCK SHIELD™</h1>
+        <p style="font-size: 0.7rem; margin: 5px 0 0 0; color: var(--cyan);">[ STATUS: SOVEREIGN_SENTINEL_ACTIVE ]</p>
     </div>
-    <div class="trilock-ledger-card">
-        <h3 class="text-cyan">BLEED STOP™</h3>
-        <p style="font-size: 1.5rem; margin: 10px 0;">$7,497 <small style="font-size: 0.7rem;">AUD</small></p>
-        <p style="color: #888;">Emergency Workflow Re-engineering. Immediate prompt-fix and edge-interception patching (48-hour SLA).</p>
+
+    <section class="neon-panel">
+        <h2 class="text-cyan">[ SYSTEM_ALERT ]: THE IMPLEMENTATION GAP</h2>
+        <p style="font-size: 1.3rem; line-height: 1.6;">
+            "Frameworks without Gateways are just paperwork. While your competitors 'Inventory' their risk monthly, TRILOCK SHIELD™ intercepts it in milliseconds."
+        </p>
+    </section>
+
+    <div style="border: 1px solid #1a1a1a; padding: 20px; text-align: center; margin-bottom: 40px;">
+        <p style="color: #444; font-family: var(--font-mono);">[ INSERT CORE IP ARCHITECTURE DIAGRAM HERE ]</p>
     </div>
+
+    <h2 class="text-cyan" style="text-align: center; margin-bottom: 30px;">THE TRILOCK LEDGER</h2>
+    <div class="ledger-grid">
+        <div class="ledger-card">
+            <h3 class="text-cyan">VT-60 AUDIT</h3>
+            <p style="font-size: 2rem; margin: 10px 0;">$2,497 <small style="font-size: 0.8rem; color: #444;">AUD</small></p>
+            <p style="color: #888; font-size: 0.9rem;">60-minute forensic discovery and gap analysis. Identifies 12 critical egress points.</p>
+        </div>
+        <div class="ledger-card">
+            <h3 class="text-cyan">BLEED STOP™</h3>
+            <p style="font-size: 2rem; margin: 10px 0;">$7,497 <small style="font-size: 0.8rem; color: #444;">AUD</small></p>
+            <p style="color: #888; font-size: 0.9rem;">Emergency Workflow Re-engineering. Immediate prompt-fix and edge-interception patching (48-hour SLA).</p>
+        </div>
+    </div>
+
+    <table class="matrix">
+        <thead>
+            <tr>
+                <th>FEATURE</th>
+                <th>TRADITIONAL (POLICY-BASED)</th>
+                <th>TRILOCK SHIELD™</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ENFORCEMENT</td>
+                <td>HR Manual / Policy Docs</td>
+                <td class="trilock-cell">Sentinel™ Circuit Breaker</td>
+            </tr>
+            <tr>
+                <td>DATA PROTECTION</td>
+                <td>Employee "Trust"</td>
+                <td class="trilock-cell">Local-MITM Interception</td>
+            </tr>
+            <tr>
+                <td>RESPONSE TIME</td>
+                <td>Days (Post-Incident)</td>
+                <td class="trilock-cell">&lt;0.2 Seconds (Pre-Incident)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="audit-form">
+        <h2 class="text-cyan" style="margin-top:0;">INITIALIZE VT-60 FORENSIC AUDIT</h2>
+        <form action="mailto:forensics@trilockshield.com" method="GET">
+            <label class="text-cyan" style="font-size: 0.7rem;">[01] EGRESS AWARENESS</label>
+            <select name="Egress" class="form-input">
+                <option value="Policy-Only">Relying on Human Policy / Trust</option>
+                <option value="Unshielded">Currently Unshielded</option>
+                <option value="Auditing">Auditing Required</option>
+            </select>
+            
+            <label class="text-cyan" style="font-size: 0.7rem;">[02] JURISDICTIONAL RESIDENCY</label>
+            <select name="Residency" class="form-input">
+                <option value="No-Proof">No forensic proof of residency</option>
+                <option value="Partial">Relying on Vendor Terms</option>
+            </select>
+
+            <label class="text-cyan" style="font-size: 0.7rem;">[03] AUDIT SCOPE (SEATS)</label>
+            <input type="number" name="Seats" class="form-input" placeholder="Estimated Users">
+
+            <button type="submit" class="btn-dispatch">DISPATCH INQUIRY TO FORENSICS TEAM</button>
+        </form>
+    </div>
+
+    <footer style="margin-top: 60px; text-align: center; font-size: 0.7rem; color: #444; font-family: var(--font-mono);">
+        CONFIDENTIALITY NOTICE: Proprietary IP protected under AU/NZ Intellectual Property Law. R.A.C.E. Protocol™.
+    </footer>
 </div>
+
+</body>
+</html>
