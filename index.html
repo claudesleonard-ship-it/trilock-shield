@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TRILOCK SHIELD™ provides sovereign AI governance solutions for a post-quantum world, preventing data leaks to unshielded LLMs.">
+    <meta name="description" content="TRILOCK SHIELD™ | Sovereign AI Governance for a Post-Quantum World.">
     <title>TRILOCK SHIELD™ | Sovereign AI Governance</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,11 +28,11 @@
             margin: 0; 
             padding: 20px 10px; 
             line-height: 1.6; 
-            overflow-x: hidden;
+            overflow-x: hidden; 
         }
-        
+
         .terminal { 
-            max-width: 1200px; 
+            max-width: 1400px; 
             margin: auto; 
             background: radial-gradient(circle at top center, rgba(0,0,128,0.15) 0%, rgba(2,2,10,1) 100%); 
             border: 1px solid rgba(0,255,255,0.1); 
@@ -40,217 +40,228 @@
             border-radius: 16px; 
             box-shadow: 0 30px 80px rgba(0,0,0,0.9); 
             position: relative; 
-            overflow: hidden;
+            overflow: hidden; 
         }
         
-        .terminal::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,255,0.02) 2px, rgba(0,255,255,0.02) 4px);
-            pointer-events: none;
-            animation: scanline 6s linear infinite;
+        .terminal::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,255,0.02) 2px, rgba(0,255,255,0.02) 4px); 
+            pointer-events: none; 
+            animation: scanline 6s linear infinite; 
         }
-        
-        @keyframes scanline {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
+        @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
         
         .status { 
-            position: absolute; 
-            top: 20px; 
-            right: 25px; 
-            color: var(--silver); 
-            font-size: 0.8em; 
-            letter-spacing: 1.5px; 
-            font-weight: 600; 
-            font-family: 'Inconsolata', monospace;
+            position: absolute; top: 20px; right: 25px; 
+            color: var(--silver); font-size: 0.8em; letter-spacing: 1.5px; 
+            font-weight: 600; font-family: 'Inconsolata', monospace; 
         }
-        .status span { 
-            color: var(--green); 
-            text-shadow: 0 0 10px var(--green); 
-            animation: blink 1.5s infinite;
-        }
+        .status span { color: var(--green); text-shadow: 0 0 10px var(--green); animation: blink 1.5s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        h1, h2, h3 { 
-            font-family: 'Montserrat', sans-serif; 
-            margin: 0; 
-        }
-        .hero-title { 
-            font-size: 3.5em; 
-            letter-spacing: -1.5px; 
-            margin-bottom: 25px; 
-            line-height: 1.05; 
-            text-transform: uppercase; 
-            text-shadow: 0 0 15px rgba(0,255,255,0.3);
-        }
-        .sub-hero { 
-            color: var(--cyan); 
-            font-size: 1.4em; 
-            font-weight: 600; 
-            margin-bottom: 15px; 
-        }
-        .alert-bar { 
-            color: var(--red); 
-            font-weight: 800; 
-            font-size: 0.9em; 
-            margin-bottom: 35px; 
-            border-top: 1px solid rgba(255,0,60,0.2); 
-            padding-top: 20px; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            text-shadow: 0 0 8px rgba(255,0,60,0.3);
-        }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; }
+        .hero-title { font-size: 3.5em; letter-spacing: -1.5px; margin-bottom: 25px; line-height: 1.05; text-transform: uppercase; text-shadow: 0 0 15px rgba(0,255,255,0.3); }
+        .sub-hero { color: var(--cyan); font-size: 1.4em; font-weight: 600; margin-bottom: 15px; }
+        .alert-bar { color: var(--red); font-weight: 800; font-size: 0.9em; margin-bottom: 35px; border-top: 1px solid rgba(255,0,60,0.2); padding-top: 20px; text-transform: uppercase; letter-spacing: 1.5px; }
 
         .btn-cyan { 
             background: var(--cyan); 
             color: #000; 
             font-family: 'Montserrat', sans-serif; 
             font-weight: 800; 
-            font-size: 1.2em; 
-            padding: 20px 45px; 
+            font-size: 1.05em; 
+            padding: 16px 32px; 
             text-decoration: none; 
             border-radius: 6px; 
-            display: inline-block; 
+            display: block; 
             box-shadow: 0 0 25px rgba(0,255,255,0.4); 
             text-transform: uppercase; 
             transition: all 0.3s ease; 
             text-align: center; 
             border: none; 
             cursor: pointer; 
-            position: relative; 
-            overflow: hidden;
-        }
-        .btn-cyan::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-            transform: scale(0);
-            transition: transform 0.5s;
-        }
-        .btn-cyan:hover::after {
-            transform: scale(1);
+            white-space: nowrap; 
+            width: 100%; 
+            box-sizing: border-box;
         }
         .btn-cyan:hover { 
             box-shadow: 0 0 40px rgba(0,255,255,0.7); 
-            transform: translateY(-3px); 
+            transform: translateY(-2px); 
         }
 
-        .infographic-container { 
-            margin: 50px 0; 
-            padding: 0; 
-            background: #000; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            border: 1px solid rgba(192,192,192,0.2); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        stripe-buy-button { 
+            display: block !important; 
+            width: 100% !important; 
+            font-family: 'Montserrat', sans-serif !important; 
         }
-        .infographic-container img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            transition: transform 0.3s ease;
-        }
-        .infographic-container:hover img {
-            transform: scale(1.05);
+        stripe-buy-button::part(button) { 
+            font-family: 'Montserrat', sans-serif !important; 
+            font-weight: 800 !important; 
+            text-transform: uppercase !important; 
+            background-color: #00FFFF !important; 
+            color: #000 !important; 
+            border-radius: 6px !important; 
+            box-shadow: 0 0 25px rgba(0,255,255,0.4) !important; 
+            padding: 16px 32px !important; 
+            letter-spacing: 0.5px !important; 
+            font-size: 1.05em !important; 
+            width: 100% !important; 
+            box-sizing: border-box !important;
         }
 
-        .stats-grid { 
+        .btn-outline { 
+            background: transparent; color: var(--silver); 
+            font-family: 'Montserrat', sans-serif; font-weight: 600; 
+            font-size: 0.95em; padding: 14px 24px; 
+            text-decoration: none; border-radius: 6px; 
+            display: block; border: 1px solid var(--silver); 
+            text-transform: uppercase; transition: all 0.3s ease; 
+            text-align: center; width: 100%; box-sizing: border-box; 
+        }
+        .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+
+        .cta-wrapper { margin-top: 25px; }
+
+        .infographic-container { margin: 50px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(192,192,192,0.2); }
+        .infographic-container img { width: 100%; height: auto; display: block; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin: 60px 0; border-top: 1px solid rgba(192,192,192,0.05); padding-top: 60px; }
+        .stat-h { font-family: 'Montserrat', sans-serif; font-size: 2.5em; font-weight: 800; line-height: 1.1; margin-bottom: 15px; }
+
+        .ledger-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 50px; 
-            margin: 60px 0; 
-            border-top: 1px solid rgba(192,192,192,0.05); 
-            padding-top: 60px; 
-        }
-        .stat-h { 
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 2.5em; 
-            font-weight: 800; 
-            line-height: 1.1; 
-            margin-bottom: 15px; 
-        }
-        .source { 
-            font-size: 0.8em; 
-            color: var(--silver); 
-            font-style: italic; 
-            display: block; 
-            margin-top: 10px; 
+            gap: 24px; 
+            margin: 40px 0; 
         }
 
         .audit-ledger { 
             background: rgba(0,0,0,0.7); 
-            border: 1px solid var(--cyan); 
-            padding: 50px; 
+            border: 1px solid rgba(192,192,192,0.2); 
+            padding: 28px; 
             border-radius: 12px; 
-            max-width: 600px; 
-            margin: 50px auto 0; 
-            box-shadow: 0 0 30px rgba(0,255,255,0.2);
-            position: relative;
+            position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            min-height: 360px; 
+            transition: all 0.25s ease-out; 
+            overflow: hidden; 
         }
-        .audit-ledger::before {
-            content: 'SECURE';
+
+        /* Hover effects */
+        .audit-ledger:hover {
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.12),
+                        0 0 0 1px rgba(0, 255, 255, 0.08) inset;
+            border-color: rgba(0, 255, 255, 0.35);
+        }
+
+        .audit-ledger.active:hover {
+            box-shadow: 0 25px 60px rgba(0, 255, 255, 0.25),
+                        0 0 0 2px rgba(0, 255, 255, 0.15) inset;
+            border-color: var(--cyan);
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .audit-ledger::after {
+            content: '';
             position: absolute;
-            top: -15px;
-            left: 20px;
-            background: var(--bg-dark);
-            color: var(--cyan);
-            font-size: 0.8em;
-            padding: 5px 10px;
-            font-family: 'Inconsolata', monospace;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,255,255,0.03) 0%, rgba(0,255,255,0) 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
         }
+
+        .audit-ledger:hover::after { opacity: 1; }
+
+        .audit-ledger > * { position: relative; z-index: 1; }
+
+        .audit-ledger:hover .ledger-price,
+        .audit-ledger:hover h2 { text-shadow: 0 0 12px rgba(0,255,255,0.4); }
+
+        .audit-ledger.active:hover .ledger-price,
+        .audit-ledger.active:hover h2 { text-shadow: 0 0 16px rgba(0,255,255,0.6); }
+
+        .audit-ledger:hover .btn-cyan,
+        .audit-ledger:hover stripe-buy-button::part(button) {
+            box-shadow: 0 0 35px rgba(0,255,255,0.55) !important;
+            transform: translateY(-2px);
+        }
+
         .audit-ledger h2 { 
-            color: var(--cyan); 
-            font-size: 2em; 
-            margin-bottom: 10px; 
+            font-size: 1.15em; margin-bottom: 12px; 
+            color: var(--silver); text-transform: uppercase; letter-spacing: 1px; 
         }
+        .audit-ledger.active h2 { color: var(--cyan); font-size: 1.35em; }
         .ledger-price { 
-            font-size: 2.5em; 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 800; 
-            margin: 25px 0; 
-            color: var(--white); 
+            font-size: 1.9em; font-family: 'Montserrat', sans-serif; 
+            font-weight: 800; margin: 16px 0; color: var(--white); 
         }
-        
-        .footer { 
+        .ledger-price span { font-size: 0.45em; color: var(--silver); font-weight: normal; vertical-align: middle; }
+        .ledger-desc { font-size: 0.85em; color: var(--silver); margin-bottom: 20px; flex-grow: 1; }
+
+        /* Responsive grid breakpoints */
+        @media (max-width: 639px) {
+            .ledger-grid { grid-template-columns: 1fr; gap: 20px; }
+            .audit-ledger { min-height: auto; padding: 24px 18px; }
+            .btn-cyan, .btn-outline { padding: 14px 24px; font-size: 0.95em; }
+        }
+
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .ledger-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .ledger-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (min-width: 1280px) {
+            .ledger-grid { grid-template-columns: repeat(5, 1fr); }
+        }
+
+        @media (min-width: 1600px) {
+            .ledger-grid { grid-template-columns: repeat(5, minmax(280px, 1fr)); max-width: 1600px; }
+        }
+
+        @media (hover: none) {
+            .audit-ledger:hover,
+            .audit-ledger.active:hover {
+                transform: none;
+                box-shadow: none;
+                border-color: rgba(192,192,192,0.2);
+            }
+            .audit-ledger::after { opacity: 0 !important; }
+        }
+
+        /* Footer enhancements */
+        footer {
             margin-top: 80px; 
             border-top: 1px solid rgba(192,192,192,0.05); 
             padding-top: 40px; 
-            text-align: left; 
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--silver);
+            opacity: 0.85;
         }
-        .quote { 
+        footer .quote {
             font-family: 'Montserrat', sans-serif; 
             font-weight: 800; 
-            font-size: 1.3em; 
-            margin-bottom: 20px; 
+            font-size: 1.15em; 
+            margin-bottom: 20px;
+            color: var(--white);
         }
-
-        @media (max-width: 768px) {
-            .terminal { padding: 30px 20px; }
-            .hero-title { font-size: 2.5em; }
-            .sub-hero { font-size: 1.2em; }
-            .stats-grid { gap: 40px; padding-top: 40px; }
-            .btn-cyan { width: 100%; box-sizing: border-box; padding: 18px 25px; font-size: 1.1em; }
-            .audit-ledger { padding: 30px; }
-            .status { position: relative; top: 0; right: 0; margin-bottom: 25px; display: block; text-align: center; }
+        footer .ip-notice {
+            margin-top: 15px;
+            line-height: 1.5;
         }
-
-        @media (max-width: 480px) {
-            .hero-title { font-size: 2em; }
-            .btn-cyan { font-size: 1em; }
+        footer .ip-notice .trademarks {
+            color: var(--cyan);
+            font-weight: 600;
         }
     </style>
 </head>
@@ -259,47 +270,101 @@
         <div class="status"><span>●</span> Sentinel™ OVERWATCH ACTIVE</div>
         
         <header>
-            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 5px; margin-bottom: 25px; color: var(--silver);">
-                TRILOCK SHIELD™
-            </div>
-            
+            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 5px; margin-bottom: 25px; color: var(--silver);">TRILOCK SHIELD™</div>
             <h1 class="hero-title">SOVEREIGN AI GOVERNANCE<br>FOR A POST-QUANTUM WORLD.</h1>
             <div class="sub-hero">Prevent Your Staff From Leaking Company Secrets to Unshielded LLMs.</div>
-            
-            <div class="alert-bar">JAN 2026 OAIC TRANSPARENCY SWEEPS INITIATED. UNREGULATED AI USAGE IS A BOARD-LEVEL LIABILITY.</div>
-            
-            <a href="https://buy.stripe.com/dRm5kDgqu5aT3Vy2Sp8AE00" class="btn-cyan">[ INITIALIZE VT-60 AUDIT ]</a>
+            <div class="alert-bar">GLOBAL TRANSPARENCY SWEEPS INITIATED. UNREGULATED AI USAGE IS A BOARD-LEVEL LIABILITY.</div>
+            <a href="#ledger" class="btn-cyan">[ INITIALIZE SYSTEM AUDIT ]</a>
         </header>
 
         <div class="infographic-container">
-            <img src="1772519527303.png" alt="Sovereign Moat Architecture Infographic illustrating secure AI governance layers">
+            <img src="1772519527303.png" alt="Sovereign Moat Architecture">
         </div>
 
         <div class="stats-grid">
             <div>
                 <h3 style="color: var(--cyan); margin-bottom: 15px; font-size: 1.1em; letter-spacing: 1.5px;">POLICY IS NOT A SHIELD.</h3>
                 <div class="stat-h">37% of Data Breaches are caused by Human Error.</div>
-                <span class="source">(Source: Global Industry Data Egress Report 2026)</span>
+                <p style="font-size: 0.8em; color: var(--silver); font-style: italic;">(Source: Global Industry Data Egress Report 2026)</p>
             </div>
             <div>
-                <p style="color: var(--silver); font-size: 1em; margin-top: 0;">Corporate "AI Guidelines" do not hold up in court. Health & NDIS are the #1 targets for political enforcement. Under 2026 laws (OAIC APP 1.4 & NZ IPP 3A), unmitigated AI use is a multi-million dollar liability.</p>
-                <p style="color: var(--white); font-weight: 600;">We do not rely on human compliance. We enforce Architectural Compliance.</p>
+                <p style="color: var(--silver); font-size: 1em; margin-top: 0;">Regulated sectors (Healthcare, NDIS, Finance) are primary targets. Under 2026 mandates—including <strong>OAIC APP 1.4</strong> (AU), <strong>IPP 3A</strong> (NZ), and the <strong>UAE AI Act</strong>—unmitigated AI use is a multi-million dollar liability.</p>
+                <p style="color: var(--white); font-weight: 600;">Architectural compliance does not ask for permission. The Sentinel™ enforces the moat at the network edge.</p>
             </div>
         </div>
 
-        <div class="audit-ledger">
-            <h2>VULNERABILITY TRACER™ (VT-60)</h2>
-            <div style="color: var(--silver); font-weight: 600; font-size: 1em;">Immediate Forensic Diagnosis & Gap Analysis.</div>
+        <h3 id="ledger" style="color: var(--white); font-size: 1.5em; text-align: center; margin: 50px 0 30px; text-transform: uppercase; letter-spacing: 2px;">THE TRILOCK LEDGER</h3>
+        <div class="ledger-grid">
             
-            <div class="ledger-price">Investment: $2,497 <span style="font-size: 0.5em; color: var(--silver); font-weight: normal;">AUD</span></div>
-            <p style="font-size: 0.85em; color: var(--silver); margin-bottom: 30px;">(100% credited toward full Gateway implementation)</p>
-            
-            <a href="https://buy.stripe.com/dRm5kDgqu5aT3Vy2Sp8AE00" class="btn-cyan">SECURE VT-60 AUDIT</a>
+            <div class="audit-ledger active">
+                <div>
+                    <h2>VT-60 Audit</h2>
+                    <div class="ledger-price">$2,497 <span>AUD</span></div>
+                    <p class="ledger-desc">60-minute forensic discovery and gap analysis. Identifies 12 critical egress points.</p>
+                </div>
+                <div class="cta-wrapper">
+                    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+                    <stripe-buy-button
+                      buy-button-id="buy_btn_1T6gLaFlZv3b16g1G3hQ2xzh"
+                      publishable-key="pk_live_51T5vUbFlZv3b16g1IJVyUX4aEKIbGefoMSFQBrizMlNLsgw9G8PW68iJYfDQcq8gSjW9RjnaZwVWM5p2l2wJYSNW006S9yKk6H"
+                    ></stripe-buy-button>
+                </div>
+            </div>
+
+            <div class="audit-ledger">
+                <div>
+                    <h2>Bleed Stop™</h2>
+                    <div class="ledger-price">$7,497 <span>AUD</span></div>
+                    <p class="ledger-desc">Emergency Workflow Re-engineering. Immediate prompt-fix and edge-interception patching (48-hour SLA).</p>
+                </div>
+                <div class="cta-wrapper">
+                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-cyan" style="font-size: 0.95em;">REQUEST PATCH</a>
+                </div>
+            </div>
+
+            <div class="audit-ledger">
+                <div>
+                    <h2>Boutique Shield™</h2>
+                    <div class="ledger-price">$24,997 <span>AUD</span></div>
+                    <p class="ledger-desc">Dedicated Gateway install for NDIS/Law Firms (<20 users). Custom Master Personas included.</p>
+                </div>
+                <div class="cta-wrapper">
+                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-outline">REQUEST BRIEFING</a>
+                </div>
+            </div>
+
+            <div class="audit-ledger">
+                <div>
+                    <h2>Mid-Market / MSP</h2>
+                    <div class="ledger-price">POA</div>
+                    <p class="ledger-desc">Network-wide integration for 20-100 users. Automated Compliance Routing for Tier-2 IT.</p>
+                </div>
+                <div class="cta-wrapper">
+                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-outline">ENQUIRE</a>
+                </div>
+            </div>
+
+            <div class="audit-ledger">
+                <div>
+                    <h2>Sovereign Fortress™</h2>
+                    <div class="ledger-price">POA</div>
+                    <p class="ledger-desc">Enterprise/Gov R.A.C.E. Implementation (100+ Users). Full Sovereign-in-the-Loop deployment.</p>
+                </div>
+                <div class="cta-wrapper">
+                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-outline">EXECUTIVE STRIKE</a>
+                </div>
+            </div>
+
         </div>
 
-        <footer class="footer">
-            <div class="quote">"Enforcement is the new political currency. Don't be the next scalp." <br><span style="color: var(--cyan); font-size: 0.85em;">— The Architect</span></div>
-            <div style="font-size: 0.75em; color: var(--silver); opacity: 0.6;">IP Notice: TRILOCK SHIELD™, R.A.C.E. Protocol™, Sentinel™, and Forklift™ are registered trademarks of TRILOCK AI.</div>
+        <footer>
+            <div class="quote">"Enforcement is the new political currency. Don't be the next scalp."<br><span style="color: var(--cyan); font-size: 0.9em;">— The Architect</span></div>
+            
+            <div class="ip-notice">
+                © 2026 TRILOCK AI. <strong>All rights reserved</strong>.<br>
+                <span class="trademarks">TRILOCK SHIELD™</span>, <span class="trademarks">R.A.C.E. Protocol™</span>, <span class="trademarks">Sentinel™</span>, <span class="trademarks">Forklift™</span>, and other marks are trademarks of TRILOCK AI.<br>
+                All content, designs, text, graphics, and intellectual property on this site are protected by copyright and other applicable laws. Unauthorized use, reproduction, or distribution is strictly prohibited.
+            </div>
         </footer>
     </div>
 </body>
