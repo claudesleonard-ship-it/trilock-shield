@@ -3,369 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TRILOCK SHIELD™ | Sovereign AI Governance for a Post-Quantum World.">
     <title>TRILOCK SHIELD™ | Sovereign AI Governance</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
-        :root { 
-            --navy: #000080; 
-            --cyan: #00FFFF; 
-            --silver: #C0C0C0; 
-            --white: #FFFFFF; 
-            --bg-dark: #02020a; 
-            --green: #00ff62; 
-            --red: #ff003c;
+        :root {
+            --cyan: #00F0FF;
+            --obsidian: #050505;
+            --panel-bg: rgba(0, 240, 255, 0.03);
+            --glow: 0 0 15px rgba(0, 240, 255, 0.4);
+            --font-mono: 'Fira Code', 'Courier New', monospace;
+            --font-sans: 'Inter', system-ui, sans-serif;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--obsidian);
+            color: #FFFFFF;
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            /* Forensic Scan-line Effect */
+            background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 4px;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        header {
+            border-bottom: 2px solid var(--cyan);
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            text-shadow: var(--glow);
+        }
+
+        .logo { font-family: var(--font-mono); font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; }
+        .system-status { font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan); }
+
+        h2, h3 { font-family: var(--font-mono); color: var(--cyan); text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 1px; }
+
+        /* NEON MODULES */
+        .neon-module {
+            background: var(--panel-bg);
+            border: 1px solid var(--cyan);
+            box-shadow: var(--glow);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .implementation-gap p { font-size: 1.3rem; line-height: 1.8; }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+        .card { background: #000; border: 1px solid #1A1A1A; border-top: 3px solid var(--cyan); padding: 30px; }
+        .card p { color: #CCCCCC; }
+
+        /* COMPARISON MATRIX */
+        .matrix-container { overflow-x: auto; margin-bottom: 50px; }
+        .matrix { width: 100%; border-collapse: collapse; border: 1px solid #1A1A1A; background: #080808; }
+        .matrix th, .matrix td { padding: 18px; text-align: left; border: 1px solid #1A1A1A; font-size: 0.9rem; }
+        .matrix th { color: var(--cyan); font-family: var(--font-mono); text-transform: uppercase; background: #0F0F0F; }
+        .matrix td.trilock-feat { color: var(--cyan); font-weight: bold; background: rgba(0, 240, 255, 0.05); }
+
+        /* CORE IP LIST */
+        .ip-list { list-style: none; }
+        .ip-list li { margin-bottom: 20px; padding-left: 20px; border-left: 2px solid var(--cyan); }
+        .ip-list strong { color: var(--cyan); display: block; margin-bottom: 5px; }
+
+        /* FORENSIC FORM */
+        .audit-form-container { background: #000; border: 1px solid var(--cyan); padding: 50px; box-shadow: var(--glow); }
+        .form-group { margin-bottom: 25px; }
+        .form-label { display: block; color: var(--cyan); font-family: var(--font-mono); font-size: 0.75rem; margin-bottom: 10px; }
+        .form-input { 
+            width: 100%; background: #0A0A0A; border: 1px solid #333; color: #FFF; 
+            padding: 15px; font-family: var(--font-sans); font-size: 1rem;
+        }
+        .form-input:focus { border-color: var(--cyan); outline: none; box-shadow: 0 0 10px rgba(0,240,255,0.2); }
         
-        body { 
-            background-color: var(--bg-dark); 
-            color: var(--white); 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            padding: 20px 10px; 
-            line-height: 1.6; 
-            overflow-x: hidden; 
+        .btn-dispatch {
+            background: var(--cyan); color: #000; border: none; padding: 20px;
+            font-family: var(--font-mono); font-weight: bold; font-size: 1.1rem;
+            width: 100%; cursor: pointer; text-transform: uppercase; transition: 0.3s;
         }
+        .btn-dispatch:hover { background: #FFFFFF; box-shadow: var(--glow); }
 
-        .terminal { 
-            max-width: 1400px; 
-            margin: auto; 
-            background: radial-gradient(circle at top center, rgba(0,0,128,0.15) 0%, rgba(2,2,10,1) 100%); 
-            border: 1px solid rgba(0,255,255,0.1); 
-            padding: 50px; 
-            border-radius: 16px; 
-            box-shadow: 0 30px 80px rgba(0,0,0,0.9); 
-            position: relative; 
-            overflow: hidden; 
-        }
-        
-        .terminal::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; 
-            width: 100%; height: 100%; 
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,255,0.02) 2px, rgba(0,255,255,0.02) 4px); 
-            pointer-events: none; 
-            animation: scanline 6s linear infinite; 
-        }
-        @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
-        
-        .status { 
-            position: absolute; top: 20px; right: 25px; 
-            color: var(--silver); font-size: 0.8em; letter-spacing: 1.5px; 
-            font-weight: 600; font-family: 'Inconsolata', monospace; 
-        }
-        .status span { color: var(--green); text-shadow: 0 0 10px var(--green); animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; }
-        .hero-title { font-size: 3.5em; letter-spacing: -1.5px; margin-bottom: 25px; line-height: 1.05; text-transform: uppercase; text-shadow: 0 0 15px rgba(0,255,255,0.3); }
-        .sub-hero { color: var(--cyan); font-size: 1.4em; font-weight: 600; margin-bottom: 15px; }
-        .alert-bar { color: var(--red); font-weight: 800; font-size: 0.9em; margin-bottom: 35px; border-top: 1px solid rgba(255,0,60,0.2); padding-top: 20px; text-transform: uppercase; letter-spacing: 1.5px; }
-
-        .btn-cyan { 
-            background: var(--cyan); 
-            color: #000; 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 800; 
-            font-size: 1.05em; 
-            padding: 16px 32px; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            display: block; 
-            box-shadow: 0 0 25px rgba(0,255,255,0.4); 
-            text-transform: uppercase; 
-            transition: all 0.3s ease; 
-            text-align: center; 
-            border: none; 
-            cursor: pointer; 
-            white-space: nowrap; 
-            width: 100%; 
-            box-sizing: border-box;
-        }
-        .btn-cyan:hover { 
-            box-shadow: 0 0 40px rgba(0,255,255,0.7); 
-            transform: translateY(-2px); 
-        }
-
-        stripe-buy-button { 
-            display: block !important; 
-            width: 100% !important; 
-            font-family: 'Montserrat', sans-serif !important; 
-        }
-        stripe-buy-button::part(button) { 
-            font-family: 'Montserrat', sans-serif !important; 
-            font-weight: 800 !important; 
-            text-transform: uppercase !important; 
-            background-color: #00FFFF !important; 
-            color: #000 !important; 
-            border-radius: 6px !important; 
-            box-shadow: 0 0 25px rgba(0,255,255,0.4) !important; 
-            padding: 16px 32px !important; 
-            letter-spacing: 0.5px !important; 
-            font-size: 1.05em !important; 
-            width: 100% !important; 
-            box-sizing: border-box !important;
-        }
-
-        .btn-outline { 
-            background: transparent; color: var(--silver); 
-            font-family: 'Montserrat', sans-serif; font-weight: 600; 
-            font-size: 0.95em; padding: 14px 24px; 
-            text-decoration: none; border-radius: 6px; 
-            display: block; border: 1px solid var(--silver); 
-            text-transform: uppercase; transition: all 0.3s ease; 
-            text-align: center; width: 100%; box-sizing: border-box; 
-        }
-        .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
-
-        .cta-wrapper { margin-top: 25px; }
-
-        .infographic-container { margin: 50px 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(192,192,192,0.2); }
-        .infographic-container img { width: 100%; height: auto; display: block; }
-
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; margin: 60px 0; border-top: 1px solid rgba(192,192,192,0.05); padding-top: 60px; }
-        .stat-h { font-family: 'Montserrat', sans-serif; font-size: 2.5em; font-weight: 800; line-height: 1.1; margin-bottom: 15px; }
-
-        .ledger-grid { 
-            display: grid; 
-            gap: 24px; 
-            margin: 40px 0; 
-        }
-
-        .audit-ledger { 
-            background: rgba(0,0,0,0.7); 
-            border: 1px solid rgba(192,192,192,0.2); 
-            padding: 28px; 
-            border-radius: 12px; 
-            position: relative; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
-            min-height: 360px; 
-            transition: all 0.25s ease-out; 
-            overflow: hidden; 
-        }
-
-        /* Hover effects */
-        .audit-ledger:hover {
-            transform: translateY(-8px) scale(1.015);
-            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.12),
-                        0 0 0 1px rgba(0, 255, 255, 0.08) inset;
-            border-color: rgba(0, 255, 255, 0.35);
-        }
-
-        .audit-ledger.active:hover {
-            box-shadow: 0 25px 60px rgba(0, 255, 255, 0.25),
-                        0 0 0 2px rgba(0, 255, 255, 0.15) inset;
-            border-color: var(--cyan);
-            transform: translateY(-10px) scale(1.02);
-        }
-
-        .audit-ledger::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,255,255,0.03) 0%, rgba(0,255,255,0) 60%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .audit-ledger:hover::after { opacity: 1; }
-
-        .audit-ledger > * { position: relative; z-index: 1; }
-
-        .audit-ledger:hover .ledger-price,
-        .audit-ledger:hover h2 { text-shadow: 0 0 12px rgba(0,255,255,0.4); }
-
-        .audit-ledger.active:hover .ledger-price,
-        .audit-ledger.active:hover h2 { text-shadow: 0 0 16px rgba(0,255,255,0.6); }
-
-        .audit-ledger:hover .btn-cyan,
-        .audit-ledger:hover stripe-buy-button::part(button) {
-            box-shadow: 0 0 35px rgba(0,255,255,0.55) !important;
-            transform: translateY(-2px);
-        }
-
-        .audit-ledger h2 { 
-            font-size: 1.15em; margin-bottom: 12px; 
-            color: var(--silver); text-transform: uppercase; letter-spacing: 1px; 
-        }
-        .audit-ledger.active h2 { color: var(--cyan); font-size: 1.35em; }
-        .ledger-price { 
-            font-size: 1.9em; font-family: 'Montserrat', sans-serif; 
-            font-weight: 800; margin: 16px 0; color: var(--white); 
-        }
-        .ledger-price span { font-size: 0.45em; color: var(--silver); font-weight: normal; vertical-align: middle; }
-        .ledger-desc { font-size: 0.85em; color: var(--silver); margin-bottom: 20px; flex-grow: 1; }
-
-        /* Responsive grid breakpoints */
-        @media (max-width: 639px) {
-            .ledger-grid { grid-template-columns: 1fr; gap: 20px; }
-            .audit-ledger { min-height: auto; padding: 24px 18px; }
-            .btn-cyan, .btn-outline { padding: 14px 24px; font-size: 0.95em; }
-        }
-
-        @media (min-width: 640px) and (max-width: 1023px) {
-            .ledger-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (min-width: 1024px) and (max-width: 1279px) {
-            .ledger-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (min-width: 1280px) {
-            .ledger-grid { grid-template-columns: repeat(5, 1fr); }
-        }
-
-        @media (min-width: 1600px) {
-            .ledger-grid { grid-template-columns: repeat(5, minmax(280px, 1fr)); max-width: 1600px; }
-        }
-
-        @media (hover: none) {
-            .audit-ledger:hover,
-            .audit-ledger.active:hover {
-                transform: none;
-                box-shadow: none;
-                border-color: rgba(192,192,192,0.2);
-            }
-            .audit-ledger::after { opacity: 0 !important; }
-        }
-
-        /* Footer enhancements */
         footer {
-            margin-top: 80px; 
-            border-top: 1px solid rgba(192,192,192,0.05); 
-            padding-top: 40px; 
-            text-align: center;
-            font-size: 0.8em;
-            color: var(--silver);
-            opacity: 0.85;
-        }
-        footer .quote {
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 800; 
-            font-size: 1.15em; 
-            margin-bottom: 20px;
-            color: var(--white);
-        }
-        footer .ip-notice {
-            margin-top: 15px;
-            line-height: 1.5;
-        }
-        footer .ip-notice .trademarks {
-            color: var(--cyan);
-            font-weight: 600;
+            margin-top: 80px; text-align: center; font-family: var(--font-mono); 
+            font-size: 0.75rem; color: #444; border-top: 1px solid #1A1A1A; padding-top: 30px;
         }
     </style>
 </head>
 <body>
-    <div class="terminal">
-        <div class="status"><span>●</span> Sentinel™ OVERWATCH ACTIVE</div>
-        
-        <header>
-            <div style="font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 5px; margin-bottom: 25px; color: var(--silver);">TRILOCK SHIELD™</div>
-            <h1 class="hero-title">SOVEREIGN AI GOVERNANCE<br>FOR A POST-QUANTUM WORLD.</h1>
-            <div class="sub-hero">Prevent Your Staff From Leaking Company Secrets to Unshielded LLMs.</div>
-            <div class="alert-bar">GLOBAL TRANSPARENCY SWEEPS INITIATED. UNREGULATED AI USAGE IS A BOARD-LEVEL LIABILITY.</div>
-            <a href="#ledger" class="btn-cyan">[ INITIALIZE SYSTEM AUDIT ]</a>
-        </header>
 
-        <div class="infographic-container">
-            <img src="1772519527303.png" alt="Sovereign Moat Architecture">
+<div class="container">
+    <header>
+        <div class="logo">TRILOCK SHIELD™</div>
+        <div class="system-status">[ TERMINAL_STATUS: SOVEREIGN_SENTINEL_ACTIVE ]</div>
+    </header>
+
+    <section class="neon-module implementation-gap">
+        <h2>1. The "Implementation Gap" Counter-Strike</h2>
+        <p>"Frameworks without Gateways are just paperwork. While your competitors 'Inventory' their risk monthly, TRILOCK SHIELD™ intercepts it in milliseconds. Move from 'Pillars of Policy' to 'Perimeters of Protection'."</p>
+    </section>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Module 1: The 2026 Liability Audit</h3>
+            <p>"Australian and New Zealand boards are currently navigating a $50M regulatory cliff. Human policy is no longer a defense. You need Architectural Enforcement."</p>
+            <p style="margin-top: 15px;">We map the 12 critical egress points where your staff are currently leaking PII into public LLMs.</p>
         </div>
-
-        <div class="stats-grid">
-            <div>
-                <h3 style="color: var(--cyan); margin-bottom: 15px; font-size: 1.1em; letter-spacing: 1.5px;">POLICY IS NOT A SHIELD.</h3>
-                <div class="stat-h">37% of Data Breaches are caused by Human Error.</div>
-                <p style="font-size: 0.8em; color: var(--silver); font-style: italic;">(Source: Global Industry Data Egress Report 2026)</p>
-            </div>
-            <div>
-                <p style="color: var(--silver); font-size: 1em; margin-top: 0;">Regulated sectors (Healthcare, NDIS, Finance) are primary targets. Under 2026 mandates—including <strong>OAIC APP 1.4</strong> (AU), <strong>IPP 3A</strong> (NZ), and the <strong>UAE AI Act</strong>—unmitigated AI use is a multi-million dollar liability.</p>
-                <p style="color: var(--white); font-weight: 600;">Architectural compliance does not ask for permission. The Sentinel™ enforces the moat at the network edge.</p>
-            </div>
+        <div class="card">
+            <h3>Module 3: The Forensic Audit Trail</h3>
+            <p>"TRILOCK SHIELD™ is purpose-built for OAIC APP 1.4 (AU) and NZ Privacy Act IPP 3A (NZ) 2026 transparency sweeps. We provide the immutable, forensic log required for board-level accountability."</p>
         </div>
-
-        <h3 id="ledger" style="color: var(--white); font-size: 1.5em; text-align: center; margin: 50px 0 30px; text-transform: uppercase; letter-spacing: 2px;">THE TRILOCK LEDGER</h3>
-        <div class="ledger-grid">
-            
-            <div class="audit-ledger active">
-                <div>
-                    <h2>VT-60 Audit</h2>
-                    <div class="ledger-price">$2,497 <span>AUD</span></div>
-                    <p class="ledger-desc">60-minute forensic discovery and gap analysis. Identifies 12 critical egress points.</p>
-                </div>
-                <div class="cta-wrapper">
-                    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-                    <stripe-buy-button
-                      buy-button-id="buy_btn_1T6gLaFlZv3b16g1G3hQ2xzh"
-                      publishable-key="pk_live_51T5vUbFlZv3b16g1IJVyUX4aEKIbGefoMSFQBrizMlNLsgw9G8PW68iJYfDQcq8gSjW9RjnaZwVWM5p2l2wJYSNW006S9yKk6H"
-                    ></stripe-buy-button>
-                </div>
-            </div>
-
-            <div class="audit-ledger">
-                <div>
-                    <h2>Bleed Stop™</h2>
-                    <div class="ledger-price">$7,497 <span>AUD</span></div>
-                    <p class="ledger-desc">Emergency Workflow Re-engineering. Immediate prompt-fix and edge-interception patching (48-hour SLA).</p>
-                </div>
-                <div class="cta-wrapper">
-                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-cyan" style="font-size: 0.95em;">REQUEST PATCH</a>
-                </div>
-            </div>
-
-            <div class="audit-ledger">
-                <div>
-                    <h2>Boutique Shield™</h2>
-                    <div class="ledger-price">$24,997 <span>AUD</span></div>
-                    <p class="ledger-desc">Dedicated Gateway install for NDIS/Law Firms (<20 users). Custom Master Personas included.</p>
-                </div>
-                <div class="cta-wrapper">
-                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-outline">REQUEST BRIEFING</a>
-                </div>
-            </div>
-
-            <div class="audit-ledger">
-                <div>
-                    <h2>Mid-Market / MSP</h2>
-                    <div class="ledger-price">POA</div>
-                    <p class="ledger-desc">Network-wide integration for 20-100 users. Automated Compliance Routing for Tier-2 IT.</p>
-                </div>
-                <div class="cta-wrapper">
-                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-outline">ENQUIRE</a>
-                </div>
-            </div>
-
-            <div class="audit-ledger">
-                <div>
-                    <h2>Sovereign Fortress™</h2>
-                    <div class="ledger-price">POA</div>
-                    <p class="ledger-desc">Enterprise/Gov R.A.C.E. Implementation (100+ Users). Full Sovereign-in-the-Loop deployment.</p>
-                </div>
-                <div class="cta-wrapper">
-                    <a href="https://www.linkedin.com/in/claudeleonard?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="btn-outline">EXECUTIVE STRIKE</a>
-                </div>
-            </div>
-
-        </div>
-
-        <footer>
-            <div class="quote">"Enforcement is the new political currency. Don't be the next scalp."<br><span style="color: var(--cyan); font-size: 0.9em;">— The Architect</span></div>
-            
-            <div class="ip-notice">
-                © 2026 TRILOCK AI. <strong>All rights reserved</strong>.<br>
-                <span class="trademarks">TRILOCK SHIELD™</span>, <span class="trademarks">R.A.C.E. Protocol™</span>, <span class="trademarks">Sentinel™</span>, <span class="trademarks">Forklift™</span>, and other marks are trademarks of TRILOCK AI.<br>
-                All content, designs, text, graphics, and intellectual property on this site are protected by copyright and other applicable laws. Unauthorized use, reproduction, or distribution is strictly prohibited.
-            </div>
-        </footer>
     </div>
+
+    <div style="border: 1px solid #1A1A1A; padding: 40px; text-align: center; margin-bottom: 40px; background: rgba(255,255,255,0.02);">
+        <p style="color: #444; font-family: var(--font-mono);">[ CORE IP ARCHITECTURE DIAGRAM: SOVEREIGN FORENSIC GATEWAY ]</p>
+    </div>
+
+    <section class="neon-module">
+        <h2>Module 2: The Core TRILOCK IP</h2>
+        <ul class="ip-list">
+            <li><strong>Sentinel™ AI Circuit Breaker:</strong> Real-time edge interception and PII redaction.</li>
+            <li><strong>Forklift™ Data Shuttle:</strong> Physically enforcing Sovereign Data Residency for local jurisdictional compliance.</li>
+            <li><strong>R.A.C.E. Protocol™:</strong> Hardcoding Role, Action, Context, and Execution into your enterprise data flow.</li>
+        </ul>
+    </section>
+
+    <section style="margin-bottom: 60px;">
+        <h2>2. The Vulnerability Tracer-60 Forensic Audit Module</h2>
+        <p><strong>The Deliverable:</strong> A forensic heat map of your organization's 12 critical AI egress points.</p>
+        <p><strong>The Price Point:</strong> $2,497 <span style="color: #444; font-size: 0.8rem;">(Introductory Rate for Q1 2026)</span></p>
+        <p style="margin-top: 10px;"><strong>The CTA:</strong> Dispatch inquiry to <a href="mailto:forensics@trilockshield.com" style="color: var(--cyan); text-decoration: none;">forensics@trilockshield.com</a></p>
+    </section>
+
+    <h3>TRILOCK SHIELD™ vs. Traditional AI Governance</h3>
+    <div class="matrix-container">
+        <table class="matrix">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Policy-Based (The Competition)</th>
+                    <th>Architectural Enforcement (TRILOCK)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Enforcement</td>
+                    <td>HR Manual / Policy Docs</td>
+                    <td class="trilock-feat">Sentinel™ AI Circuit Breaker (Hardcoded)</td>
+                </tr>
+                <tr>
+                    <td>Data Protection</td>
+                    <td>Employee "Trust"</td>
+                    <td class="trilock-feat">Local-MITM Interception & Redaction</td>
+                </tr>
+                <tr>
+                    <td>Residency</td>
+                    <td>Terms of Service</td>
+                    <td class="trilock-feat">Forklift™ Data Shuttle (Physical Control)</td>
+                </tr>
+                <tr>
+                    <td>Response Time</td>
+                    <td>Days (Post-Incident)</td>
+                    <td class="trilock-feat">&lt;0.2 Seconds (Pre-Incident)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="audit-form-container">
+        <h2 style="margin-top: 0;">Forensic Intake Form</h2>
+        <p style="margin-bottom: 30px; color: #888;">Complete the 5 "Architect-Level" diagnostic questions below to initialize your audit.</p>
+        
+        <form action="mailto:forensics@trilockshield.com" method="GET" enctype="text/plain">
+            <div class="form-group">
+                <label class="form-label">[01] CURRENT AI USAGE</label>
+                <input type="text" name="Usage" class="form-input" placeholder="Are staff authorized to use public LLMs for corporate data?" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">[02] EGRESS AWARENESS</label>
+                <input type="text" name="Egress" class="form-input" placeholder="Do you have a technical gatekeeper or rely on human policy?" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">[03] JURISDICTIONAL RESIDENCY</label>
+                <input type="text" name="Residency" class="form-input" placeholder="Can you forensically prove 100% of data remains within AU/NZ borders?" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">[04] 2026 READINESS</label>
+                <input type="text" name="Readiness" class="form-input" placeholder="Has your Board initialized a Forensic Audit for the Jan 2026 sweeps?" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">[05] AUDIT SCOPE</label>
+                <input type="text" name="Scope" class="form-input" placeholder="Estimated number of local-MITM edge points (Seats/Users)?" required>
+            </div>
+            
+            <button type="submit" class="btn-dispatch">DISPATCH INQUIRY TO FORENSICS TEAM</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>CONFIDENTIALITY NOTICE: This terminal and any associated communications contain proprietary IP related to the R.A.C.E. Protocol™. Unauthorized disclosure or reverse-engineering is strictly prohibited under AU/NZ Intellectual Property Law.</p>
+        <p style="margin-top: 10px; color: #222;">&copy; 2026 TRILOCK SHIELD™. ALL RIGHTS RESERVED.</p>
+    </footer>
+</div>
+
 </body>
 </html>
